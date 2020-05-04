@@ -1,4 +1,8 @@
 
+
+//'actionTypes' becomes an object that you can search through with 'actionType.property'
+import * as actionTypes from './actions';
+
 const initialState = {
     counter: 0,
     results: []
@@ -8,35 +12,35 @@ const reducer = (state = initialState, action) => {
 
     switch (action.type) {
 
-        case 'INCREMENT':
+        case actionTypes.INCREMENT:
             return{
 /*spreading out all the data from the initial state object*/
 //returning the UPDATED version of the state object and overriding the old one 
                     ...state,
                     counter: state.counter + 1 
             }
-        case 'DECREMENT':
+        case actionTypes.DECREMENT:
                 return{
                     ...state,
                     counter: state.counter - 1 
                 }
-        case 'ADD':
+        case actionTypes.ADD:
             return{
                     ...state,
                     counter: state.counter + action.val
             }
-        case 'SUBTRACT':
+        case actionTypes.SUBTRACT:
                 return{
                     ...state,
                     counter: state.counter - action.val
                 }
-        case 'STORE_RESULTS':
+        case actionTypes.STORE_RESULT:
                 return{
 //.concat() is like .push() but it is an immutable way of creating a new array which is what we want
                     ...state,//"pushing" in the state.counter value to results array
                     results: state.results.concat({id: Date.now(), value: state.counter})
                 }       
-        case 'DELETE_RESULT':
+        case actionTypes.DELETE_RESULT:
             //'filter' loops through the current array and returns a new array
             /*If each object has an id NOT equal to the clicked id, then return TRUE, meaning
             it should keep existing, else if FALSE, then remove it from the newly created array*/
