@@ -5,7 +5,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 //globalized state
-import {createStore, combineReducers} from 'redux'
+import {createStore, combineReducers, applyMiddleware, compose} from 'redux'
 import {Provider} from 'react-redux'
 
 import counterReducer from './store/reducers/counter';
@@ -16,8 +16,21 @@ const rootReducer = combineReducers({
     res: resultReducer
 });
 
+const logger = store =>{
+    return next => {
+        return action =>{
+            console.log('[Middleware]', action);
+            const result = next(action);
+            console.log('[Middle]', store.getState());
+            return result;
+        }
+    }
+};
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 //store will most often take a reducer as an input
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, composeEnhancer(applyMiddleware(logger)));
 
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));

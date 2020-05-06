@@ -32,6 +32,7 @@ class Counter extends Component {
 }
 
 
+//To get access to state
 //pass in current state and returns newly replicated state
 const mapStateToProps = state => {
     return {
@@ -44,6 +45,7 @@ const mapStateToProps = state => {
 /* To visualize this better, look at it like this 
 mapDisptchToProps({type: 'SUBTRACT', val:10})
 */
+//To get acccess to Disptch functions to be able to dispatch
 const mapDispatchToProps = dispatch => {
     return {
         onIncrementCounter: () => dispatch({type: actionTypes.INCREMENT}),
