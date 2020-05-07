@@ -7,7 +7,7 @@ import CounterOutput from '../../components/CounterOutput/CounterOutput';
 // //'actionTypes' becomes an object that you can search through with 'actionType.property'
 // import * as actionTypes from '../../store/actions/actions'
 
-import * as actionCreators from '../../store/actions/actions';
+import * as actionCreators from '../../store/actions/index';
 
 class Counter extends Component {
     

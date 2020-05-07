@@ -1,14 +1,14 @@
 
 
 //'actionTypes' becomes an object that you can search through with 'actionType.property'
-import * as actionTypes from '../actions/actions';
+import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     counter: 0
 }
 
 const reducer = (state = initialState, action) => {
-
+//e.g INCREMENT, below if the type passed in is indeed actionTypes.property-->value, then do that case
     switch (action.type) {
 
         case actionTypes.INCREMENT:

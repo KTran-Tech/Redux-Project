@@ -1,7 +1,7 @@
 
 
 //'actionTypes' becomes an object that you can search through with 'actionType.property'
-import * as actionTypes from '../actions/actions';
+import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     results: []
