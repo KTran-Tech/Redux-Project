@@ -1,7 +1,7 @@
 
 
 //'actionTypes' becomes an object that you can search through with 'actionType.property'
-import * as actionTypes from '../actions';
+import * as actionTypes from '../actions/actions';
 
 const initialState = {
     counter: 0
